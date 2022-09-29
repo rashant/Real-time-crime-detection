@@ -13,7 +13,9 @@ from flask import Flask, Response, render_template, request, stream_with_context
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
-application = Flask(__name__)
+
+app = Flask(__name__)
+
 random.seed()  # Initialize the random number generator
 
 SEQUENCE_LENGTH=20
@@ -23,15 +25,15 @@ video_reader = cv2.VideoCapture(0)
 frames_queue = deque(maxlen = SEQUENCE_LENGTH)
 LABELS=[0,1]
 
-@application.route('/video')
+@app.route('/video')
 def video():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@application.route("/graph")
+@app.route("/graph")
 def graph() -> str:
     return render_template("graph.html")
 
-@application.route("/")
+@app.route("/")
 def index() -> str:
     return render_template("cameraview.html")
 
@@ -109,7 +111,7 @@ def generate_random_data() -> Iterator[str]:
         logger.info("Client %s disconnected", client_ip)
 
 
-@application.route("/chart-data")
+@app.route("/chart-data")
 def chart_data() -> Response:
     response = Response(stream_with_context(generate_random_data()), mimetype="text/event-stream")
     response.headers["Cache-Control"] = "no-cache"
@@ -118,4 +120,4 @@ def chart_data() -> Response:
 
 
 if __name__ == "__main__":
-    application.run(threaded=True)
+    app.run(threaded=True)
