@@ -2,6 +2,9 @@ import json
 import logging
 import random
 import sys
+from pygame import mixer
+mixer.init()
+beep=mixer.Sound("Models/beep.mp3")
 from datetime import datetime
 from typing import Iterator
 import cv2
@@ -34,7 +37,7 @@ def graph() -> str:
 
 @app.route("/")
 def index() -> str:
-    return render_template("camera.html")
+    return render_template("cameraview.html")
 
 
 
@@ -95,6 +98,8 @@ def generate_random_data() -> Iterator[str]:
                 # Get the index of class with highest probability.
                 predicted_label = np.argmax(predicted_labels_probabilities)
                 print(CLASSES_LIST[predicted_label])
+                if predicted_label==1:
+                    beep.play()
 
                 json_data = json.dumps(
                     {
