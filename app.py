@@ -56,7 +56,7 @@ def generate_frames():
             # Pass the normalized frames to the model and get the predicted probabilities.
             predicted_labels_probabilities = LRCN_model.predict(np.expand_dims(frames_queue, axis=0))[0]
             print(predicted_labels_probabilities)
-            #[0.56 0.45]
+            #[0.56 0.45]R
             #[1 0]
 
             prediction=np.argmax(predicted_labels_probabilities)
