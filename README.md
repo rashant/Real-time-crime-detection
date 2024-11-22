@@ -31,7 +31,3 @@ To get started with this project, please follow these steps:
 ## License
 
 This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute the code as per the terms of the license.
-
-## Contact
-
-If you have any questions or inquiries about this project, you can reach out to me at [prashantkalepu.com].
