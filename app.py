@@ -34,7 +34,7 @@ def graph() -> str:
 
 @app.route("/")
 def index() -> str:
-    return render_template("camera.html")
+    return render_template("cameraview.html")
 
 
 
