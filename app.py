@@ -10,6 +10,7 @@ from keras.models import load_model
 from collections import deque
 from flask import Flask, Response, render_template, request, stream_with_context
 
+
 logging.basicConfig(stream=sys.stdout, level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
