@@ -14,7 +14,7 @@ The repository has the following directory structure:
 
 ## Project Overview
 
-The goal of this project is to develop a real-time crime detection system that utilizes computer vision and deep learning algorithms. The model in this project is trained using an LSTM-CNN architecture, which combines the power of both LSTM (Long Short-Term Memory) and CNN (Convolutional Neural Network) models to detect and classify criminal activities from video footage.
+The goal of this project is to develop a real-time crime detection system that utilizes computer vision and deep learning algorithms. The model in this project is trained using an LSTM-CNN architecture, which combines the power of both LSTM (Long Short-Term Memory) and CNN (Convolutional Neural Network) models to detect and classify criminal activities from video footage. The model has acheived near to 85% accuracy with 82% precision and 86% recall rate approximately.
 
 The Flask web application allows users to interact with the crime detection model in real-time. Users can act infront of camera to capture live video which is fed to the application, and will process the frames using the trained model and provide real-time crime detection results. The HTML templates in the `templates` directory define the structure and layout of the web pages.
 
